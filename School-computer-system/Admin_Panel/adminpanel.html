@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage and track computer lab usage, maintenance, and warranty information for your school.">
+    <meta name="keywords" content="school, computer system, lab management, warranty, maintenance, IT">
+    <meta name="author" content="School Computer System">
+
+    <!-- Open Graph Meta Tags (For Telegram, Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="School Computer System">
+    <meta property="og:description" content="Track and manage computer labs, monitor warranty status, and ensure your systems are always up-to-date.">
+    <meta property="og:image" content="https://arafatmohammeddev.github.io/School-computer-system/Images/Admin-Img.png">
+    <meta property="og:image:alt" content="School Computer System Overview">
+    <meta property="og:url" content="https://arafatmohammeddev.github.io/School-computer-system/Admin_Panel/adminpanel.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US"> <!-- Use your region/language, like 'en_US' or 'en_GB' -->
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image"> <!-- or "summary" for smaller image -->
+    <meta name="twitter:title" content="School Computer System">
+    <meta name="twitter:description" content="Manage your school’s computer lab, track warranties, and ensure proper maintenance of every computer.">
+    <meta name="twitter:image" content="https://arafatmohammeddev.github.io/School-computer-system/Images/Admin-Img.png">
+    <meta name="twitter:url" content="https://arafatmohammeddev.github.io/School-computer-system/Admin_Panel/adminpanel.html">
+
+    <link rel="stylesheet" href="adminpanel.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>Admin Dashboard Panel</title>
+</head>
+<body>
+    <section class="dashboard">
+        <div class="top">
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Search here...">
+            </div>
+        </div>
+
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Dashboard</span>
+                </div>
+
+                <div class="boxes">
+                    <div class="box box1">
+                        <i class="uil uil-desktop"></i>
+                        <span class="text">Total Computers</span>
+                        <span class="number" id="totalComputers">0</span>
+                    </div>
+                    <div class="box box2">
+                        <i class="uil uil-image-broken"></i>
+                        <span class="text">Need Updates</span>
+                        <span class="number" id="needUpdates">0</span>
+                    </div>
+                    <div class="box box3">
+                        <i class="uil uil-tachometer-fast-alt"></i>
+                        <span class="text">Avg. Performance</span>
+                        <span class="number" id="avgPerformance">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="title">
+                    <i class="uil uil-clock-three"></i>
+                    <span class="text">Recent Activity</span>
+                </div>
+
+                <div class="activity-data" id="activityData"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="adminpanel.js" type="module"></script>
+</body>
+</html>
