@@ -157,7 +157,7 @@ function filterActivities() {
     const filteredActivities = labDataList.filter(lab => {
         return (
             lab.warranty.toLowerCase().includes(searchTerm) ||
-            lab.processor.toLowerCase().includes(searchTerm) ||
+            lab.accessories.toLowerCase().includes(searchTerm) ||
             lab.ram.toLowerCase().includes(searchTerm) ||
             lab.storage.toLowerCase().includes(searchTerm) ||
             lab.graphicsCard.toLowerCase().includes(searchTerm)
