@@ -282,3 +282,9 @@ ul {
         width: 100% ;
     }
 }
+
+@media(max-width: 422px) {
+    .dashboard .top{
+        width: 350px;
+    }
+}
