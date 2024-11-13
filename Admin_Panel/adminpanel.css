@@ -94,7 +94,6 @@ ul {
 .dashboard .top{
     position: fixed;
     top: 0;
-    left: 250px;
     display: flex;
     width: calc(100% - 250px);
     justify-content: space-between;
@@ -113,9 +112,7 @@ ul {
 .dashboard .top .search-box{
     position: relative;
     height: 45px;
-    max-width: 600px;
     width: 100%;
-    margin: 0 30px;
 }
 .top .search-box input{
     position: absolute;
@@ -271,6 +268,11 @@ ul {
     text-align: right;
     width: 70%;
 }
+@media(max-width: 422px) {
+    .dashboard .top{
+        width: 350px;
+    }
+}
 @media (max-width: 780px) {
     .dash-content .boxes .box{
         width: calc(100% / 2 - 15px);
@@ -280,11 +282,5 @@ ul {
 @media (max-width: 560px) {
     .dash-content .boxes .box{
         width: 100% ;
-    }
-}
-
-@media(max-width: 422px) {
-    .dashboard .top{
-        width: 350px;
     }
 }
