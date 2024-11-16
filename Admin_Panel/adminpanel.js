@@ -25,7 +25,9 @@ const searchInput = document.querySelector('.search-box input');
 const spinner = document.getElementById('spinner'); // Spinner element
 let labDataList = [];
 
+
 async function updateDashboard() {
+    const preloader = document.getElementById('preloader'); // Get the preloader element
     const labsRef = ref(database);
 
     // Show spinner before data fetching
@@ -92,7 +94,6 @@ async function updateDashboard() {
     } catch (error) {
         console.error('Error fetching data:', error);
     } finally {
-        // Hide spinner after data fetching is complete
         if (preloader) preloader.style.display = 'none';
     }
 }
@@ -106,13 +107,16 @@ function displayActivities(activities) {
         const activityElement = document.createElement('div');
         activityElement.classList.add('data');
 
+        // Apply a red border if performance is 0
+        const borderStyle = labData.performance == 0 ? 'border: 2px solid red; box-shadow: 3px 3px 0.5px red;' : '';
+
         // Convert installed software into HTML list
         const installedSoftwareHTML = labData.installedSoftware?.length
             ? `<ul>${labData.installedSoftware.map(software => `<li>${software}</li>`).join('')}</ul>`
             : "None";
 
         activityElement.innerHTML = `
-            <div class="activity-card">
+            <div class="activity-card" style="${borderStyle}">
                 <h3 class="activity-title">${labData.warranty}</h3>
                 <h3 class="activity-date">${labData.inventoryDate}</h3>
                 <div class="activity-details">
@@ -159,6 +163,7 @@ function displayActivities(activities) {
         activityDataContainer.appendChild(activityElement);
     });
 }
+
 
 // Function to filter activities based on search input
 function filterActivities() {
