@@ -20,11 +20,15 @@ const database = getDatabase(app);
 const adminusername = localStorage.getItem('adminUsername'); // Retrieve stored admin username
 console.log(adminusername); // Log admin username for debugging
 
+// Redirect to signin page if username is not 'flipper-ict'
+if (adminusername !== 'flipper-ict-lab-1') {
+    window.location.href = "Sign-in"; // Redirect to signin page
+}
+
 const activityDataContainer = document.getElementById('activityData');
 const searchInput = document.querySelector('.search-box input');
 const spinner = document.getElementById('spinner'); // Spinner element
 let labDataList = [];
-
 
 async function updateDashboard() {
     const preloader = document.getElementById('preloader'); // Get the preloader element
