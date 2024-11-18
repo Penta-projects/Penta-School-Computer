@@ -21,7 +21,7 @@ const adminusername = localStorage.getItem('adminUsername'); // Retrieve stored 
 console.log(adminusername); // Log admin username for debugging
 
 // Redirect to signin page if username is not 'flipper-ict'
-if (adminusername !== 'flipper-ict-lab-1') {
+if (adminusername !== 'flipper-ict-lab') {
     window.location.href = "Sign-in"; // Redirect to signin page
 }
 
