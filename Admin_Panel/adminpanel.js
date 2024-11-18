@@ -79,8 +79,12 @@ async function updateDashboard() {
 
             // Sort labDataList by the numerical order in the warranty field
             labDataList.sort((a, b) => {
-                const getNumber = (warranty) => parseInt(warranty.match(/\d+$/)[0], 10); // Extract the number at the end
-                return getNumber(a.warranty) - getNumber(b.warranty);
+                const getNumber = (warranty) => {
+                if (!warranty || typeof warranty !== 'string') return 0; // Default to 0 if null or not a string
+                const match = warranty.match(/\d+$/);
+                return match ? parseInt(match[0], 10) : 0; // Return 0 if no number found
+        };
+
             });
 
             // Update dashboard elements
