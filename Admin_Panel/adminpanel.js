@@ -20,15 +20,11 @@ const database = getDatabase(app);
 const adminusername = localStorage.getItem('adminUsername'); // Retrieve stored admin username
 console.log(adminusername); // Log admin username for debugging
 
-// Redirect to signin page if username is not 'flipper-ict'
-if (adminusername !== 'flipper-ict-lab') {
-    window.location.href = "Sign-in"; // Redirect to signin page
-}
-
 const activityDataContainer = document.getElementById('activityData');
 const searchInput = document.querySelector('.search-box input');
 const spinner = document.getElementById('spinner'); // Spinner element
 let labDataList = [];
+
 
 async function updateDashboard() {
     const preloader = document.getElementById('preloader'); // Get the preloader element
@@ -79,12 +75,8 @@ async function updateDashboard() {
 
             // Sort labDataList by the numerical order in the warranty field
             labDataList.sort((a, b) => {
-                const getNumber = (warranty) => {
-                if (!warranty || typeof warranty !== 'string') return 0; // Default to 0 if null or not a string
-                const match = warranty.match(/\d+$/);
-                return match ? parseInt(match[0], 10) : 0; // Return 0 if no number found
-        };
-
+                const getNumber = (warranty) => parseInt(warranty.match(/\d+$/)[0], 10); // Extract the number at the end
+                return getNumber(a.warranty) - getNumber(b.warranty);
             });
 
             // Update dashboard elements
@@ -117,8 +109,6 @@ function displayActivities(activities) {
 
         // Apply a red border if performance is 0
         const borderStyle = labData.performance == 0 ? 'border: 2px solid red; box-shadow: 3px 3px 0.5px red;' : '';
-        const borderStyleOrange = labData.performance == 40 ? 'border: 2px solid orange;' : '';
-
 
         // Convert installed software into HTML list
         const installedSoftwareHTML = labData.installedSoftware?.length
@@ -126,7 +116,7 @@ function displayActivities(activities) {
             : "None";
 
         activityElement.innerHTML = `
-            <div class="activity-card" style="${borderStyle}${borderStyleOrange}">
+            <div class="activity-card" style="${borderStyle}">
                 <h3 class="activity-title">${labData.warranty}</h3>
                 <h3 class="activity-date">${labData.inventoryDate}</h3>
                 <div class="activity-details">
