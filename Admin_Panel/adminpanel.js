@@ -113,6 +113,8 @@ function displayActivities(activities) {
 
         // Apply a red border if performance is 0
         const borderStyle = labData.performance == 0 ? 'border: 2px solid red; box-shadow: 3px 3px 0.5px red;' : '';
+        const borderStyleOrange = labData.performance == 40 ? 'border: 2px solid orange;' : '';
+
 
         // Convert installed software into HTML list
         const installedSoftwareHTML = labData.installedSoftware?.length
@@ -120,7 +122,7 @@ function displayActivities(activities) {
             : "None";
 
         activityElement.innerHTML = `
-            <div class="activity-card" style="${borderStyle}">
+            <div class="activity-card" style="${borderStyle}${borderStyleOrange}">
                 <h3 class="activity-title">${labData.warranty}</h3>
                 <h3 class="activity-date">${labData.inventoryDate}</h3>
                 <div class="activity-details">
