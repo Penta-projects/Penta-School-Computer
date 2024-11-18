@@ -39,7 +39,7 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
           // Check if the password matches the stored one
           if (userData.password === password) {
             localStorage.setItem('adminUsername', username); // Assuming 'username' is the variable containing the admin username
-            window.location.href = '../Admin_Panel/adminpanel.html';
+            window.location.href = 'fis.scs.ct.ws';
         } else {
             const passError = document.querySelector('.pass-error');
             passError.style.display = 'block';
