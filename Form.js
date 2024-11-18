@@ -42,6 +42,9 @@ function getFormattedDate() {
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
+    // Ask for the username and password
+  const username = prompt("Enter your username:");
+  const password = prompt("Enter your password:");
 
   // Get data from the form
   const model = form.querySelector('input[name="model"]').value;
