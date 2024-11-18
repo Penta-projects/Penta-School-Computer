@@ -107,7 +107,8 @@ form.addEventListener('submit', async (e) => {
           height: window.innerHeight,
           width: window.innerWidth,
           CurrentSoftwareversion,
-          inventoryDate // Add the formatted date to the database
+          inventoryDate, // Add the formatted date to the database
+          username
         });
         console.log("New data successfully written to Realtime Database!");
         alert("New data successfully written to Realtime Database!");
@@ -131,7 +132,8 @@ form.addEventListener('submit', async (e) => {
         height: window.innerHeight,
         width: window.innerWidth,
         CurrentSoftwareversion,
-        inventoryDate // Add the formatted date to the database
+        inventoryDate, // Add the formatted date to the database
+        username
       });
       console.log("Data successfully written to Realtime Database!");
       alert("Data successfully written to Realtime Database!");
