@@ -26,7 +26,7 @@ console.log(window);
 // Example of submitting data to Realtime Database
 const form = document.querySelector('.form');
 
-  document.querySelector('input[name="Performance"]').value = "Intel(R) Core(TM) i5-4430 CPU @ 3.00GHz 3.00 GHz";
+  document.querySelector('input[name="processor"]').value = "Intel(R) Core(TM) i5-4430 CPU @ 3.00GHz 3.00 GHz";
 
 function getFormattedDate() {
   const options = { 
