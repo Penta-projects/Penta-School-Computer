@@ -73,11 +73,19 @@ async function updateDashboard() {
                 }
             });
 
-            // Sort labDataList by the numerical order in the warranty field
-            labDataList.sort((a, b) => {
-                const getNumber = (warranty) => parseInt(warranty.match(/\d+$/)[0], 10); // Extract the number at the end
-                return getNumber(a.warranty) - getNumber(b.warranty);
-            });
+        // Sort labDataList by the numerical order in the warranty field
+        labDataList.sort((a, b) => {
+            const getNumber = (warranty) => {
+                // Ensure warranty is a valid string before trying to match a number
+                if (warranty && typeof warranty === 'string') {
+                    const match = warranty.match(/\d+$/);
+                    return match ? parseInt(match[0], 10) : 0; // Return 0 if no number is found
+                }
+                return 0; // Return 0 if warranty is null or undefined
+            };
+            return getNumber(a.warranty) - getNumber(b.warranty);
+        });
+
 
             // Update dashboard elements
             document.getElementById('totalComputers').innerText = totalComputers;
