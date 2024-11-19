@@ -76,13 +76,16 @@ async function updateDashboard() {
         // Sort labDataList by the numerical order in the warranty field
         labDataList.sort((a, b) => {
             const getNumber = (warranty) => {
-                // Ensure warranty is a valid string before trying to match a number
-                if (warranty && typeof warranty === 'string') {
+                // Check if warranty is a valid string and contains a number
+                if (typeof warranty === 'string' && warranty.trim() !== '') {
                     const match = warranty.match(/\d+$/);
                     return match ? parseInt(match[0], 10) : 0; // Return 0 if no number is found
+                } else if (typeof warranty === 'number' && !isNaN(warranty)) {
+                    return warranty; // Directly return the number if it's already numeric
                 }
-                return 0; // Return 0 if warranty is null or undefined
+                return 0; // Return 0 if warranty is null, undefined, or invalid
             };
+        
             return getNumber(a.warranty) - getNumber(b.warranty);
         });
 
