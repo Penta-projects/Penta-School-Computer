@@ -68,7 +68,8 @@ async function updateDashboard() {
                         performance: labData.performance,
                         Performancedesc: labData.Performancedesc,
                         installedSoftware: labData.installedSoftware,
-                        inventoryDate: labData.inventoryDate
+                        inventoryDate: labData.inventoryDate,
+                        username: labData.username
                     });
                 }
             });
@@ -162,6 +163,10 @@ function displayActivities(activities) {
                     <div class="activity-item">
                         <span class="activity-label">Performance Description:</span>
                         <span class="activity-value">${labData.Performancedesc}</span>
+                    </div>
+                     <div class="activity-item">
+                        <span class="activity-label">username:</span>
+                        <span class="activity-value">${labData.username || "not added"}</span>
                     </div>
                     <div class="activity-item">
                         <span class="activity-label">Installed Software:</span>
